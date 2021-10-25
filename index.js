@@ -28,13 +28,14 @@ bot.on('messageCreate', msg => {
                 responseType: 'application/json'
               })
                 .then(function (response) {
-                    var apexname=response.data.global.name;
-                    var brrank=response.data.global.rank.rankName;
-                    var brrankdiv=response.data.global.rank.rankDiv;
-                    var arenarank=response.data.global.arena.rankName;
-                    var arenadiv=response.data.global.arena.rankDiv;
-                    var selectedLegend=response.data.realtime.selectedLegend;
-                    var currentStatus=response.data.realtime.currentStateAsText;
+                    var Data=response.data;
+                    var apexname=Data.global.name;
+                    var brrank=Data.global.rank.rankName;
+                    var brrankdiv=Data.global.rank.rankDiv;
+                    var arenarank=Data.global.arena.rankName;
+                    var arenadiv=Data.global.arena.rankDiv;
+                    var selectedLegend=Data.realtime.selectedLegend;
+                    var currentStatus=Data.realtime.currentStateAsText;
                     bot.channels.cache.get(TextChannelId).send(
                       "Apex Name: "+apexname+"\n"
                      +"Battley Royal Rank: "+brrank+"-"+brrankdiv+"\n"
